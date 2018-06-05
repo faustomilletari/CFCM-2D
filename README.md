@@ -14,7 +14,7 @@ but it has been modified in a way that can result in unexpected behaviors.
 Limited support will be given through the means offered by GitHub issues reporting system.
 
 The experiments of the CFCM paper were run on NVIDIA DGX systems with either 16Gb or 32Gb GPUs. 
-To the best of our knowledge most experiments can run workstations with smaller GPUs such as 1080ti, and all the experiments can surely run on GPUs equipped with 24Gb of memory (Quadro P6000 and above).
+To the best of our knowledge most experiments can run on workstations with smaller GPUs such as 1080ti, and all the experiments can surely run on GPUs equipped with 24Gb of memory (Quadro P6000 and above).
 
 ## Cite
 

@@ -13,6 +13,9 @@ This implementation is derived directly from the original implementation used fo
 but it has been modified in a way that can result in unexpected behaviors.
 Limited support will be given through the means offered by GitHub issues reporting system.
 
+The experiments of the CFCM paper were run on NVIDIA DGX-1 systems with either 16Gb or 32Gb GPUs. 
+To the best of our knowledge most experiments can run workstations with smaller GPUs such as 1080ti, and all the experiments can surely run on GPUs equipped with 24Gb of memory (Quadro P6000 and above).
+
 ## Cite
 
 If you use CFCM for your own research please cite our paper using this bibtext:
@@ -130,5 +133,8 @@ This command will start a bash shell in a container:
 ```bash
 nvidia-docker run -it --rm --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 cfcm bash
 ```
+
+## Acknowledgments
+The code we provide in this repository is a refactoring of the original version. Most of the work for this refactoring has been done by [Marco Esposito](https://github.com/marcoesposito1988).
 
 

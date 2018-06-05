@@ -1,0 +1,16 @@
+Flask==0.12.2
+imageio==2.3.0
+imgaug==0.2.5
+jupyter==1.0.0
+matplotlib==2.2.2
+requests==2.18.4
+scikit-image==0.13.1
+scipy==1.0.1
+SimpleITK==1.1.0
+sklearn==0.0
+Pillow==5.0.0
+click==6.7
+simpleitk==1.1.0
+scikit-image==0.13.1
+imageio==2.3.0
+git+https://github.com/wookayin/tensorflow-plot.git@master

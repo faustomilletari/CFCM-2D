@@ -1,0 +1,20 @@
+{
+  "algorithm": {
+    "name": "ResNet",
+    "loss": "dice_loss",
+    "run_name": "18_[1-2-4]_[3]_augmentations_",
+    "resnet_type": 18,
+    "n_epochs": 30
+  },
+  "dataset": {
+    "name": "ENDOVIS",
+    "training": [
+      1,
+      2,
+      4
+    ],
+    "testing": [
+      3
+    ]
+  }
+}

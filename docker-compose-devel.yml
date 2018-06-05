@@ -1,0 +1,18 @@
+version: '2.3'
+
+# this configuration mounts the root directory of this repository as a mapped volume into the docker container,
+# so that the changes applied to the code will be immediately applied into the container
+#
+# docker-compose -f docker-compose.yml -f docker-compose-devel.yml run cfcm
+# > python cfcm.cli.py train ...
+
+services:
+    cfcm:
+      # mount this directory as a volume for interactive development
+      volumes:
+        - ./:/opt/app
+
+
+    # CUSTOMIZE HERE: adjust the first half of the path to the path containing the dataset on your local computer
+    volumes:
+      - ../data:/data

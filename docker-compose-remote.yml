@@ -1,0 +1,16 @@
+version: '2.3'
+
+# this configuration is intended to be used in conjunction with docker-machine:
+#
+# eval "$(docker-machine env NAME_OF_YOUR_DOCKER_MACHINE)"
+# docker-compose -f docker-compose.yml -f docker-compose-remote.yml run cfcm
+# > python cfcm_train train ...
+
+services: 
+  cfcm:
+    # restore default docker runtime (no need for nvidia-docker)
+    runtime: runc
+
+    # CUSTOMIZE HERE: adjust the first half of the path to the path containing the dataset on your REMOTE server
+    volumes:
+      - /opt/data:/data

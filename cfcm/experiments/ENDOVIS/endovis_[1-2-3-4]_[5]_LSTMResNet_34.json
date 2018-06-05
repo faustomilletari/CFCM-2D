@@ -1,0 +1,21 @@
+{
+  "algorithm": {
+    "name": "LSTMResNet",
+    "loss": "dice_loss",
+    "run_name": "34_[1-2-3-4]_[5]_augmentations_",
+    "resnet_type": 34,
+    "n_epochs": 30
+  },
+  "dataset": {
+    "name": "ENDOVIS",
+    "training": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "testing": [
+      5
+    ]
+  }
+}

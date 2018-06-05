@@ -1,0 +1,22 @@
+version: '2.3'
+
+services:
+  cfcm:
+    build: .
+    image: cfcm
+    # use nvidia-docker
+    runtime: nvidia
+    # raise limits for shared memory and stack size
+    shm_size: '1g'
+    ulimits:
+      memlock: 1
+      stack: 67108864
+
+    # CUSTOMIZE HERE: adjust the first half of the path to the path containing the dataset on your local computer
+    # by default, ../data:data maps a directory "data" outside this repo to the directory "/data" inside the container
+    # you should create a "data" directory outside this git repository and put the dataset in there
+    volumes:
+      - ../data:/data
+
+    # by default, start an interactive prompt
+    command: bash

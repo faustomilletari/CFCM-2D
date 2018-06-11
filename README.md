@@ -49,8 +49,10 @@ pip install -r requirements.txt
 source <path-to-virtualenv>/bin/activate
 ```
 * run training or evaluation
+
+In order to run the training routine, a file describing the desired configuration must be specified. A set of predefined experiment setups is contained in the `cfcm/experiments` directory.
 ```bash
-python cfcm/train.py
+python cfcm/cli.py train cfcm/experiments/<experiment_name>.json
 ```
 
 ## Docker usage

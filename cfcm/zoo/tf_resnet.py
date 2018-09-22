@@ -181,7 +181,7 @@ def seg_resnet_lstm_v2_generator(block_fn, layers, num_classes, data_format='cha
         lstm_b4 = BasicConvLSTMCell(shape, [3, 3], num_features=base_num_kernels * 8 * factor, scope='lstm_b4',
                                     activation=tf.nn.relu)
 
-        _, state = rnn.static_rnn(lstm_b4, output_list_b4, initial_state=initial_state, dtype=tf.float32)
+        _, state = rnn.static_rnn(lstm_b4, output_list_b4[::-1], initial_state=initial_state, dtype=tf.float32)
 
         state = conv2d_transpose(state, kernel_size=2, output_channels=base_num_kernels * 8 * factor)
 
@@ -189,7 +189,7 @@ def seg_resnet_lstm_v2_generator(block_fn, layers, num_classes, data_format='cha
         lstm_b3 = BasicConvLSTMCell(shape, [3, 3], num_features=base_num_kernels * 4 * factor, scope='lstm_b3',
                                     activation=tf.nn.relu)
 
-        _, state = rnn.static_rnn(lstm_b3, output_list_b3, initial_state=state, dtype=tf.float32)
+        _, state = rnn.static_rnn(lstm_b3, output_list_b3[::-1], initial_state=state, dtype=tf.float32)
 
         state = conv2d_transpose(state, kernel_size=2, output_channels=base_num_kernels * 4 * factor)
 
@@ -197,7 +197,7 @@ def seg_resnet_lstm_v2_generator(block_fn, layers, num_classes, data_format='cha
         lstm_b2 = BasicConvLSTMCell(shape, [3, 3], num_features=base_num_kernels * 2 * factor, scope='lstm_b2',
                                     activation=tf.nn.relu)
 
-        _, state = rnn.static_rnn(lstm_b2, output_list_b2, initial_state=state, dtype=tf.float32)
+        _, state = rnn.static_rnn(lstm_b2, output_list_b2[::-1], initial_state=state, dtype=tf.float32)
 
         state = conv2d_transpose(state, kernel_size=2, output_channels=base_num_kernels * 2 * factor)
 
@@ -205,11 +205,13 @@ def seg_resnet_lstm_v2_generator(block_fn, layers, num_classes, data_format='cha
         lstm_b1 = BasicConvLSTMCell(shape, [3, 3], num_features=base_num_kernels * factor, scope='lstm_b1',
                                     activation=tf.nn.relu)
 
-        output, state = rnn.static_rnn(lstm_b1, output_list_b1, initial_state=state, dtype=tf.float32)
+        output, state = rnn.static_rnn(lstm_b1, output_list_b1[::-1], initial_state=state, dtype=tf.float32)
 
         hidden = conv2d_transpose(output[-1], kernel_size=2, output_channels=base_num_kernels * factor)
 
         conv_final = conv2d_fixed_padding(inputs=hidden, filters=base_num_kernels * factor, kernel_size=3, stride=1)
+        
+        conv_final = tf.nn.relu(conv_final)
 
         outputs = conv2d_fixed_padding(inputs=conv_final, filters=num_classes, kernel_size=3, stride=1)
 

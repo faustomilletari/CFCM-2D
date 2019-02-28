@@ -1,7 +1,7 @@
 # CFCM
 This repository contains a publicly available version of
 CFCM: segmentation via Coarse to Fine Context Memory,
-a paper accepted at MICCAI 2018 for presentation. An arXiv version of the paper is available here: https://arxiv.org/abs/1806.01413
+a paper accepted at MICCAI 2018 for presentation. An arXiv version of the paper is available [here](https://arxiv.org/abs/1806.01413), and the final version is available [through Springer](https://link.springer.com/chapter/10.1007%2F978-3-030-00937-3_76).
 
 In this repository we provide only training/validation code. In the future it will be possibile to use
 CFCM to obtain predictions on the Montgomery XRay lung dataset over the cloud
@@ -21,7 +21,15 @@ To the best of our knowledge most experiments can run on workstations with small
 If you use CFCM for your own research please cite our paper using this bibtext:
 
 ```
-TODO
+@inbook{inbook,
+    author = {Milletari, Fausto and Rieke, Nicola and Baust, Maximilian and Esposito, Marco and Navab, Nassir},
+    year = {2018},
+    month = {09},
+    pages = {667-674},
+    title = {CFCM: Segmentation via Coarse to Fine Context Memory: 21st International Conference, Granada, Spain, September 16-20, 2018, Proceedings, Part IV},
+    isbn = {978-3-030-00936-6},
+    doi = {10.1007/978-3-030-00937-3_76}
+}
 ```
 
 ## Local usage
